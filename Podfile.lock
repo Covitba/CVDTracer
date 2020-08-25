@@ -1,0 +1,27 @@
+PODS:
+  - CVDTracer (0.1.0)
+  - Nimble (7.3.4)
+  - Quick (1.2.0)
+
+DEPENDENCIES:
+  - CVDTracer (from `./`)
+  - Nimble (~> 7.0)
+  - Quick (~> 1.2.0)
+
+SPEC REPOS:
+  trunk:
+    - Nimble
+    - Quick
+
+EXTERNAL SOURCES:
+  CVDTracer:
+    :path: "./"
+
+SPEC CHECKSUMS:
+  CVDTracer: 626abc6ee8947973e2f02510402c4b1200ad7a81
+  Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+
+PODFILE CHECKSUM: 5b7c9eb21c77dbb0987248ca2cc0ee2c78128da6
+
+COCOAPODS: 1.8.4

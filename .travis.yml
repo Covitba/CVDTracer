@@ -14,4 +14,4 @@ jobs:
     - stage: lint
       script: swiftlint
     - stage: test
-      script: xcodebuild test -enableCodeCoverage YES -workspace Template.xcworkspace -scheme Template -sdk iphonesimulator13.2 -destination "OS=13.3,name=iPhone 11 Pro" ONLY_ACTIVE_ARCH=NO | xcpretty
+      script: xcodebuild test -enableCodeCoverage YES -workspace CVDTracer.xcworkspace -scheme CVDTracer-Example -sdk iphonesimulator13.2 -destination "OS=13.3,name=iPhone 11 Pro" ONLY_ACTIVE_ARCH=NO | xcpretty

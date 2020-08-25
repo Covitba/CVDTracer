@@ -1,34 +1,39 @@
-# ios-repo-template
-This is a iOS template repo with the basic setup to build an iOS app. CI integration.
+# CVDTracer [![CI Status](https://img.shields.io/travis/Covitba/CVDTracer.svg?style=flat)](https://travis-ci.org/Covitba/CVDTracer)
 
-## Setup the initial repo
+## Description
 
-### Branch setup
-- We use develop as our main branch
-- Develop is blocked, no one has permision to push directly, you must do a pull request
+CVDTracer is a library for detecting devices interaction using Core Bluetooth
 
-### Initialize the Pod
-- Add our private specs repo:
+## How to use it
+
+CVDTracer is available on the private specs repo of Covitb
+    1. Add the private specs repo
+```ruby
+$ pod repo add CVD-Specs https://github.com/Covitba/ios-specs.git
 ```
-$ pod repo add POD_SPEC_REPO [POD_SPEC_REPO_URL]
+    2. Add the repo to the `Podfile`
+```ruby
+source 'https://github.com/Covitba/ios-specs.git'
 ```
-
-- We should initialize the pod lib repo, run:
-```
-$ pod lib create [POD_NAME]
-```
-
-- Move the files generated under the_[POD-NAME]_ folder to the root directory of the repo. _Be careful, don't duplicate the `.git` folder_
-
-- Edit the `[POD-NAME].podspec` file
-- Check the `.podspec` file is valid:
-
-```
-$ pod lib lint <POD1_NAME>.podspec
+    3. Add the pod to the `Podfile`
+```ruby
+pod 'CVDTracer'
 ```
 
+## Example
 
-### Travis setup
-- You should give travis permission to read the repo
-- Edit `.trvais.yml` changing _Template_ for _[POD-NAME]_.
+To run the example project, clone the repo, and run:
+```ruby
+$ bundle install
+$ bundle exec pod install
+$ open CVDTracer.xcworkspace
+```
+from the root directory.
 
+## Author
+
+Martin Victory, Segundo Farina
+
+## License
+
+CVDTracer is available under the MIT license. See the LICENSE file for more info.

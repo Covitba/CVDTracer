@@ -14,10 +14,13 @@ Pod::Spec.new do |s|
   s.requires_arc     = true
   s.swift_version    = '5.0'
 
-  s.source_files = 'CVDTracer/Classes/**/*.{h,m,swift}'
+  s.source_files     = 'CVDTracer/Classes/**/*.{h,m,swift}'
   
 #  s.resource_bundles = {
 #    'CVDTracerResources' => ['CVDTracer/Classes/**/*.{xib}',
 #                             'CVDTracer/Classes/Assets/**/*']
 #  }
+
+  s.dependency 'AndesUI', '~> 3.8'
+
 end

@@ -6,6 +6,7 @@ use_frameworks!
 
 target 'CVDTracer_Example' do
   pod 'CVDTracer', :path => './'
+  pod 'AndesUI', '~> 3.8'
 
   target 'CVDTracer_Tests' do
     inherit! :search_paths

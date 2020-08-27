@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import CVDTracer
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        self.present(CVDTracer.NewInteractionViewController(), animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

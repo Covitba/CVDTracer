@@ -13,6 +13,7 @@
                 <outlet property="dateTextField" destination="jun-uh-bPW" id="5Or-8Y-6b0"/>
                 <outlet property="headerTitle" destination="dxx-4X-QXU" id="IKh-Rq-zOY"/>
                 <outlet property="locationTextField" destination="5zC-9g-Kea" id="g9g-3a-3Cc"/>
+                <outlet property="partcipantsCollectionView" destination="6H4-Hk-2LM" id="AhB-aN-6KQ"/>
                 <outlet property="participantsTextField" destination="kmn-IL-wGy" id="KfV-uM-TBL"/>
                 <outlet property="subtitle" destination="M9P-dL-EPu" id="a1W-od-dn0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -58,6 +59,20 @@
                                         </view>
                                     </subviews>
                                 </stackView>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6H4-Hk-2LM">
+                                    <rect key="frame" x="24" y="348" width="368" height="187"/>
+                                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="187" id="fcv-Oy-CPn"/>
+                                        <constraint firstAttribute="width" constant="368" id="wTZ-Gc-h6a"/>
+                                    </constraints>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yyp-Qn-9mi">
+                                        <size key="itemSize" width="128" height="128"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
@@ -68,6 +83,7 @@
                                 <constraint firstAttribute="trailing" secondItem="M9P-dL-EPu" secondAttribute="trailing" constant="24" id="giV-t5-D5u"/>
                                 <constraint firstAttribute="trailing" secondItem="6or-Ik-OtY" secondAttribute="trailing" constant="22" id="j1A-mm-oB9"/>
                                 <constraint firstItem="dxx-4X-QXU" firstAttribute="leading" secondItem="Zrg-QL-0qd" secondAttribute="leading" constant="24" id="rGX-sm-vsf"/>
+                                <constraint firstItem="6H4-Hk-2LM" firstAttribute="top" secondItem="6or-Ik-OtY" secondAttribute="bottom" constant="53" id="rHy-kj-hEl"/>
                                 <constraint firstItem="6or-Ik-OtY" firstAttribute="top" secondItem="M9P-dL-EPu" secondAttribute="bottom" constant="20" id="roI-ZT-RBP"/>
                                 <constraint firstAttribute="trailing" secondItem="dxx-4X-QXU" secondAttribute="trailing" constant="24" id="tcN-8E-CsS"/>
                             </constraints>
@@ -89,7 +105,9 @@
             <constraints>
                 <constraint firstItem="l1I-PL-uvt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="5bD-8Q-ekJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="l1I-PL-uvt" secondAttribute="trailing" id="BEA-2o-FFd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6H4-Hk-2LM" secondAttribute="trailing" constant="22" id="HM5-j4-aP9"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="l1I-PL-uvt" secondAttribute="bottom" id="M00-CB-yIX"/>
+                <constraint firstItem="6H4-Hk-2LM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="vcM-JP-z1G"/>
                 <constraint firstItem="l1I-PL-uvt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wfx-KJ-9Iv"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

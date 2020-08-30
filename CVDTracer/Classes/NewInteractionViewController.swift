@@ -16,7 +16,12 @@ public class NewInteractionViewController: UIViewController {
     @IBOutlet weak var locationTextField: AndesTextField!
     @IBOutlet weak var participantsTextField: AndesTextField!
     
+    @IBOutlet weak var partcipantsCollectionView: UICollectionView!
+    
     private var datePicker: UIDatePicker!
+    private var participant: ParticipantView!
+    private var participants: [ParticipantView] = []
+    
     
     public override func loadView() {
         let bundle = Bundle(for: type(of: self))
@@ -37,6 +42,31 @@ public class NewInteractionViewController: UIViewController {
         // Gesture recognizer for dismissing the keyboard on screen tap
         let gestureRecongizer = UITapGestureRecognizer(target: self, action: #selector(doneDatePicker))
         self.view.addGestureRecognizer(gestureRecongizer)
+        
+        
+        let participant = ParticipantView()
+        let participant2 = ParticipantView()
+        let participant3 = ParticipantView()
+       
+        
+        participants = [participant, participant2, participant3]
+        setUpCollectionView()
+        
+        
+        
+        
+    }
+    
+    
+    private func setUpCollectionView() {
+        partcipantsCollectionView.delegate = self
+        partcipantsCollectionView.dataSource = self
+        partcipantsCollectionView.register(ParticipantView.self, forCellWithReuseIdentifier: "participantCell")
+        
+        let flowLayouts = UICollectionViewFlowLayout()
+        flowLayouts.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        partcipantsCollectionView.collectionViewLayout = flowLayouts
+        
     }
     
     private func setUpTextFields () {
@@ -66,7 +96,10 @@ public class NewInteractionViewController: UIViewController {
         //Formate Date
         datePicker.datePickerMode = .date
         datePicker.locale = Locale(identifier: "es-ar")
+        datePicker.backgroundColor = AndesStyleSheetManager.styleSheet.bgColorSecondary
+        
         dateTextField.inputView = datePicker
+        
     }
 
      @objc func doneDatePicker() {
@@ -78,5 +111,30 @@ public class NewInteractionViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
         return formatter.string(from: date)
+    }
+}
+
+
+extension NewInteractionViewController: UICollectionViewDelegate {
+    
+}
+
+extension NewInteractionViewController: UICollectionViewDelegateFlowLayout {
+//    public override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
+//        return CGSize(width: 90, height: 90)
+//    }
+}
+
+
+extension NewInteractionViewController: UICollectionViewDataSource {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return participants.count
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "participantCell", for: indexPath) as! ParticipantView
+        cell.setName(firstName: "Segundo", lastName: "Fariña")
+        cell.backgroundColor = UIColor.red
+        return cell
     }
 }

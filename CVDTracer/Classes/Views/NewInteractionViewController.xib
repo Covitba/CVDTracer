@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewInteractionViewController" customModule="CVDTracer" customModuleProvider="target">
             <connections>
+                <outlet property="addInteractionButton" destination="8hb-o5-hbj" id="TRX-DN-EBZ"/>
+                <outlet property="collectionViewHeight" destination="wy6-mi-lvx" id="fOH-S9-yta"/>
                 <outlet property="dateTextField" destination="jun-uh-bPW" id="5Or-8Y-6b0"/>
                 <outlet property="headerTitle" destination="dxx-4X-QXU" id="IKh-Rq-zOY"/>
                 <outlet property="locationTextField" destination="5zC-9g-Kea" id="g9g-3a-3Cc"/>
@@ -61,10 +63,10 @@
                                 </stackView>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6H4-Hk-2LM">
                                     <rect key="frame" x="24" y="348" width="368" height="187"/>
-                                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="187" id="fcv-Oy-CPn"/>
                                         <constraint firstAttribute="width" constant="368" id="wTZ-Gc-h6a"/>
+                                        <constraint firstAttribute="height" constant="187" id="wy6-mi-lvx"/>
                                     </constraints>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yyp-Qn-9mi">
                                         <size key="itemSize" width="128" height="128"/>
@@ -73,15 +75,22 @@
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                 </collectionView>
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="8hb-o5-hbj" customClass="AndesButton" customModule="AndesUI">
+                                    <rect key="frame" x="87" y="668" width="240" height="60"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
                                 <constraint firstItem="M9P-dL-EPu" firstAttribute="leading" secondItem="Zrg-QL-0qd" secondAttribute="leading" constant="24" id="BbY-w3-gIk"/>
                                 <constraint firstItem="dxx-4X-QXU" firstAttribute="top" secondItem="Zrg-QL-0qd" secondAttribute="top" constant="24" id="Cqr-hd-imI"/>
+                                <constraint firstAttribute="bottom" secondItem="8hb-o5-hbj" secondAttribute="bottom" constant="90" id="Njm-iB-aMa"/>
                                 <constraint firstItem="M9P-dL-EPu" firstAttribute="top" secondItem="dxx-4X-QXU" secondAttribute="bottom" constant="20" id="RFj-0c-lOk"/>
+                                <constraint firstItem="8hb-o5-hbj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6H4-Hk-2LM" secondAttribute="bottom" constant="24" id="Zj0-z4-9Uk"/>
                                 <constraint firstItem="6or-Ik-OtY" firstAttribute="leading" secondItem="Zrg-QL-0qd" secondAttribute="leading" constant="24" id="cNa-tj-86V"/>
                                 <constraint firstAttribute="trailing" secondItem="M9P-dL-EPu" secondAttribute="trailing" constant="24" id="giV-t5-D5u"/>
                                 <constraint firstAttribute="trailing" secondItem="6or-Ik-OtY" secondAttribute="trailing" constant="22" id="j1A-mm-oB9"/>
+                                <constraint firstItem="8hb-o5-hbj" firstAttribute="centerX" secondItem="Zrg-QL-0qd" secondAttribute="centerX" id="qTy-IS-lNd"/>
                                 <constraint firstItem="dxx-4X-QXU" firstAttribute="leading" secondItem="Zrg-QL-0qd" secondAttribute="leading" constant="24" id="rGX-sm-vsf"/>
                                 <constraint firstItem="6H4-Hk-2LM" firstAttribute="top" secondItem="6or-Ik-OtY" secondAttribute="bottom" constant="53" id="rHy-kj-hEl"/>
                                 <constraint firstItem="6or-Ik-OtY" firstAttribute="top" secondItem="M9P-dL-EPu" secondAttribute="bottom" constant="20" id="roI-ZT-RBP"/>

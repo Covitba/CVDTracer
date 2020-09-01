@@ -17,6 +17,10 @@ public class NewInteractionViewController: UIViewController {
     @IBOutlet weak var participantsTextField: AndesTextField!
     
     @IBOutlet weak var partcipantsCollectionView: UICollectionView!
+    @IBOutlet weak var addInteractionButton: AndesButton!
+    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
+    
+    private var viewModel: NewInteractionViewModel!
     
     private var datePicker: UIDatePicker!
     private var participant: ParticipantView!
@@ -35,9 +39,13 @@ public class NewInteractionViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.viewModel = NewInteractionViewModelImpl()
+        self.viewModel.viewDelegate = self
+        
         self.view.backgroundColor = AndesStyleSheetManager.styleSheet.bgColorPrimary
         self.setUpDatePicker()
         self.setUpTextFields()
+        self.addInteractionButton.text = "Agregar"
         
         // Gesture recognizer for dismissing the keyboard on screen tap
         let gestureRecongizer = UITapGestureRecognizer(target: self, action: #selector(doneDatePicker))
@@ -49,10 +57,8 @@ public class NewInteractionViewController: UIViewController {
         let participant3 = ParticipantView()
        
         
-        participants = [participant, participant2, participant3]
+        participants = [participant, participant2, participant3, ParticipantView(), ParticipantView(), ParticipantView(), ParticipantView()]
         setUpCollectionView()
-        
-        
         
         
     }
@@ -62,11 +68,22 @@ public class NewInteractionViewController: UIViewController {
         partcipantsCollectionView.delegate = self
         partcipantsCollectionView.dataSource = self
         partcipantsCollectionView.register(ParticipantView.self, forCellWithReuseIdentifier: "participantCell")
+        partcipantsCollectionView.isScrollEnabled = false
         
         let flowLayouts = UICollectionViewFlowLayout()
         flowLayouts.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         partcipantsCollectionView.collectionViewLayout = flowLayouts
+        updateHeight()
+    }
+    
+    private func updateHeight() {
+        collectionViewHeight.constant = partcipantsCollectionView.collectionViewLayout.collectionViewContentSize.height
         
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateHeight()
     }
     
     private func setUpTextFields () {
@@ -84,6 +101,7 @@ public class NewInteractionViewController: UIViewController {
         locationTextField.label = "Lugar"
         locationTextField.placeholder = "¿Con quien te juntaste?"
         locationTextField.leftContent = AndesTextFieldComponentIcon(andesIconName: "andes_control_y_accion_buscar_20", tintColor: AndesStyleSheetManager.styleSheet.accentColor600)
+        locationTextField.delegate = self
         
         participantsTextField.label = "Participantes"
         participantsTextField.placeholder = "Agregar un participante"
@@ -137,4 +155,19 @@ extension NewInteractionViewController: UICollectionViewDataSource {
         cell.backgroundColor = UIColor.red
         return cell
     }
+}
+
+extension NewInteractionViewController: AndesTextFieldDelegate {
+    public func andesTextFieldDidChange(_ textField: AndesTextField) {
+        if textField == self.locationTextField {
+            self.viewModel.location = self.locationTextField.text
+        }
+    }
+}
+
+extension NewInteractionViewController: NewInteractionViewDelegate {
+    func refreshUI() {
+        self.locationTextField.text = self.viewModel.location
+    }
+    
 }
